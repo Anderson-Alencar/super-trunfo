@@ -21,10 +21,9 @@ class Form extends React.Component {
     return (
       <form className="form">
         <div className="item-form">
-          <label htmlFor="name">
+          <label htmlFor="cardName">
             Nome da carta:
             <input
-              id="name"
               name="cardName"
               type="text"
               data-testid="name-input"
@@ -34,10 +33,9 @@ class Form extends React.Component {
           </label>
         </div>
         <div className="item-form">
-          <label htmlFor="description">
+          <label htmlFor="cardDescription">
             Descrição da carta:
             <textarea
-              id="description"
               name="cardDescription"
               data-testid="description-input"
               value={ cardDescription }
@@ -46,10 +44,9 @@ class Form extends React.Component {
           </label>
         </div>
         <div className="item-form">
-          <label htmlFor="attr1">
+          <label htmlFor="cardAttr1">
             Primeiro atributo:
             <input
-              id="attr1"
               name="cardAttr1"
               type="number"
               data-testid="attr1-input"
@@ -59,10 +56,9 @@ class Form extends React.Component {
           </label>
         </div>
         <div className="item-form">
-          <label htmlFor="attr2">
+          <label htmlFor="cardAttr2">
             Segundo atributo:
             <input
-              id="attr2"
               name="cardAttr2"
               type="number"
               data-testid="attr2-input"
@@ -72,10 +68,9 @@ class Form extends React.Component {
           </label>
         </div>
         <div className="item-form">
-          <label htmlFor="attr3">
+          <label htmlFor="cardAttr3">
             Terceiro atributo:
             <input
-              id="attr3"
               name="cardAttr3"
               type="number"
               data-testid="attr3-input"
@@ -85,10 +80,9 @@ class Form extends React.Component {
           </label>
         </div>
         <div className="item-form">
-          <label htmlFor="image">
+          <label htmlFor="cardImage">
             Insira uma imagem:
             <input
-              id="image"
               name="cardImage"
               type="text"
               data-testid="image-input"
@@ -110,10 +104,9 @@ class Form extends React.Component {
           </select>
         </div>
         <div className="item-form">
-          <label htmlFor="trunfo">
+          <label htmlFor="cardTrunfo">
             Super Trunfo
             <input
-              id="trunfo"
               name="cardTrunfo"
               type="checkbox"
               data-testid="trunfo-input"

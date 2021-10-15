@@ -22,11 +22,59 @@ class App extends React.Component {
     };
   }
 
-  onInputChange = (event) => {
-    const { name, value } = event.target;
-    console.log(name);
+  checkFieldsNoEmpty = () => {
+    const { cardName, cardDescription, cardImage, cardRare } = this.state;
 
-    this.setState({ [name]: value });
+    if (cardName === ''
+      || cardDescription === ''
+      || cardImage === ''
+      || cardRare === ''
+    ) {
+      return false;
+    }
+
+    return true;
+  }
+
+  checkValueAttrs = () => {
+    const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
+
+    const sum = 210;
+    const maxPoints = 90;
+    const minPoints = 0;
+
+    if (Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3) > sum
+      || cardAttr1 < minPoints
+      || cardAttr1 > maxPoints
+      || cardAttr2 < minPoints
+      || cardAttr2 > maxPoints
+      || cardAttr3 < minPoints
+      || cardAttr3 > maxPoints
+    ) {
+      return false;
+    }
+
+    return true;
+  }
+
+  enableSaveButton = () => {
+    if (this.checkFieldsNoEmpty() && this.checkValueAttrs()) {
+      return this.setState({ isSaveButtonDisabled: false });
+    }
+
+    return this.setState({ isSaveButtonDisabled: true });
+  }
+
+  onInputChange = ({ target }) => {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState(
+      {
+        [name]: value,
+      },
+      () => this.enableSaveButton(),
+    );
   }
 
   onSaveButtonClick = () => null;

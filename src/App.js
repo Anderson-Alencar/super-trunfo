@@ -3,22 +3,25 @@ import './App.css';
 import Form from './components/Form';
 import Card from './components/Card';
 
+const stateDefault = {
+  cardName: '',
+  cardDescription: '',
+  cardAttr1: 0,
+  cardAttr2: 0,
+  cardAttr3: 0,
+  cardImage: '',
+  cardRare: 'normal',
+  cardTrunfo: false,
+};
+
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      cardName: '',
-      cardDescription: '',
-      cardAttr1: '',
-      cardAttr2: '',
-      cardAttr3: '',
-      cardImage: '',
-      cardRare: '',
-      cardTrunfo: false,
+      ...stateDefault,
       isSaveButtonDisabled: true,
       hasTrunfo: false,
-      onInputChange: this.onInputChange,
     };
   }
 
@@ -77,17 +80,24 @@ class App extends React.Component {
     );
   }
 
-  onSaveButtonClick = () => null;
+  onSaveButtonClick = (event) => {
+    event.preventDefault();
+    // addNewCard(this.state);
+    // this.setState((prevState) => ({ cardsSaves: [...prevState.cardsSaves], ...stateDefault }));
+    this.setState(() => ({ ...stateDefault }));
+  };
 
   render() {
     return (
       <div>
         <h1>Tryunfo</h1>
         <Form
-          { ... this.state }
+          { ...this.state }
+          onInputChange={ this.onInputChange }
+          onSaveButtonClick={ this.onSaveButtonClick }
         />
         <Card
-          { ... this.state }
+          { ...this.state }
         />
       </div>
     );

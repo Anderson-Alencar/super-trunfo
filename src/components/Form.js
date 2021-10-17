@@ -114,15 +114,18 @@ class Form extends React.Component {
               onChange={ onInputChange }
             />
           </label>
+
         </div>
         <div className="item-form">
-          <input
-            type="button"
+          <button
+            type="submit"
             data-testid="save-button"
             value="Salvar"
             disabled={ isSaveButtonDisabled }
             onClick={ onSaveButtonClick }
-          />
+          >
+            Salvar
+          </button>
         </div>
       </form>
     );

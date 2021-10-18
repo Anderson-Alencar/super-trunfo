@@ -81,10 +81,13 @@ class App extends React.Component {
   }
 
   onSaveButtonClick = (event) => {
+    const { cardTrunfo } = this.state;
+
     event.preventDefault();
     // addNewCard(this.state);
     // this.setState((prevState) => ({ cardsSaves: [...prevState.cardsSaves], ...stateDefault }));
     this.setState(() => ({ ...stateDefault }));
+    if (cardTrunfo) this.setState({ hasTrunfo: true });
   };
 
   render() {

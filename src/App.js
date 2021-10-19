@@ -22,6 +22,7 @@ class App extends React.Component {
       ...stateDefault,
       isSaveButtonDisabled: true,
       hasTrunfo: false,
+      cardsSaves: [],
     };
   }
 
@@ -81,16 +82,21 @@ class App extends React.Component {
   }
 
   onSaveButtonClick = (event) => {
-    const { cardTrunfo } = this.state;
+    const { hasTrunfo, cardsSaves, cardTrunfo, ...othersStates } = this.state;
 
     event.preventDefault();
     // addNewCard(this.state);
-    // this.setState((prevState) => ({ cardsSaves: [...prevState.cardsSaves], ...stateDefault }));
-    this.setState(() => ({ ...stateDefault }));
+    this.setState((prevState) => ({
+      cardsSaves: [...prevState.cardsSaves, othersStates],
+      ...stateDefault,
+    }));
+    // this.setState(() => ({ ...stateDefault }));
     if (cardTrunfo) this.setState({ hasTrunfo: true });
   };
 
   render() {
+    const { cardsSaves } = this.state;
+
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -99,9 +105,13 @@ class App extends React.Component {
           onInputChange={ this.onInputChange }
           onSaveButtonClick={ this.onSaveButtonClick }
         />
-        <Card
-          { ...this.state }
-        />
+        { cardsSaves.map((card) => (
+          <div key={ card.cardName }>
+            <Card
+              { ...card }
+            />
+          </div>
+        ))}
       </div>
     );
   }

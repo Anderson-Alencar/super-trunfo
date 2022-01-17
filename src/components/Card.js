@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import DeleteBtn from './DeleteBtn';
 
 class Card extends React.Component {
   render() {
@@ -12,24 +13,47 @@ class Card extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      noDeleteBtn,
+      onDeleteButtonClick,
     } = this.props;
 
     return (
-      <div>
-        <h2 data-testid="name-card">{ cardName }</h2>
+      <div className="card border-dark bg-warning">
+        <h2 className="card-header" data-testid="name-card">{ cardName }</h2>
         <img
           src={ cardImage }
+          className="card-img-top"
           alt={ cardName }
           data-testid="image-card"
         />
-        <p data-testid="description-card">{ cardDescription }</p>
-        <p data-testid="attr1-card">{ cardAttr1 }</p>
-        <p data-testid="attr2-card">{ cardAttr2 }</p>
-        <p data-testid="attr3-card">{ cardAttr3 }</p>
-        <p data-testid="rare-card">{ cardRare }</p>
-        {
-          cardTrunfo ? <span data-testid="trunfo-card">Super Trunfo</span> : null
-        }
+        <div className="card-body">
+          <p
+            className="bg-dark text-warning"
+            data-testid="description-card"
+          >
+            { cardDescription }
+
+          </p>
+          <div className="attr">
+            <p>OVR</p>
+            <p data-testid="attr1-card">{ cardAttr1 }</p>
+          </div>
+          <div className="attr">
+            <p>ATA</p>
+            <p data-testid="attr2-card">{ cardAttr2 }</p>
+          </div>
+          <div className="attr">
+            <p>DEF</p>
+            <p data-testid="attr3-card">{ cardAttr3 }</p>
+          </div>
+          <p className="rarity" data-testid="rare-card">{ cardRare }</p>
+          {
+            cardTrunfo && <span data-testid="trunfo-card">Super Trunfo</span>
+          }
+
+          { noDeleteBtn
+            ? null : <DeleteBtn onDeleteButtonClick={ onDeleteButtonClick } /> }
+        </div>
       </div>
     );
   }
@@ -44,6 +68,8 @@ Card.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
+  noDeleteBtn: PropTypes.bool.isRequired,
+  onDeleteButtonClick: PropTypes.func.isRequired,
 };
 
 export default Card;

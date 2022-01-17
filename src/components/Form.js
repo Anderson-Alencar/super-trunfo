@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CheckboxTrunfo from './CheckboxTrunfo';
 
 class Form extends React.Component {
   render() {
@@ -18,31 +19,14 @@ class Form extends React.Component {
       onSaveButtonClick,
     } = this.props;
 
-    let divTrunfo;
-    if (hasTrunfo) {
-      divTrunfo = <span>Você já tem um Super Trunfo em seu baralho</span>;
-    } else {
-      divTrunfo = (
-        <label htmlFor="cardTrunfo">
-          Super Trunfo
-          <input
-            name="cardTrunfo"
-            type="checkbox"
-            data-testid="trunfo-input"
-            checked={ cardTrunfo }
-            onChange={ onInputChange }
-          />
-        </label>
-      );
-    }
-
     return (
       <form className="form">
         <div className="item-form">
-          <label htmlFor="cardName">
+          <label htmlFor="cardName" className="form-label">
             Nome da carta:
             <input
               name="cardName"
+              className="form-control"
               type="text"
               data-testid="name-input"
               onChange={ onInputChange }
@@ -51,10 +35,11 @@ class Form extends React.Component {
           </label>
         </div>
         <div className="item-form">
-          <label htmlFor="cardDescription">
+          <label htmlFor="cardDescription" className="form-label">
             Descrição da carta:
             <textarea
               name="cardDescription"
+              className="form-control"
               data-testid="description-input"
               value={ cardDescription }
               onChange={ onInputChange }
@@ -62,10 +47,11 @@ class Form extends React.Component {
           </label>
         </div>
         <div className="item-form">
-          <label htmlFor="cardAttr1">
+          <label htmlFor="cardAttr1" className="form-label">
             Primeiro atributo:
             <input
               name="cardAttr1"
+              className="form-control"
               type="number"
               data-testid="attr1-input"
               value={ cardAttr1 }
@@ -74,10 +60,11 @@ class Form extends React.Component {
           </label>
         </div>
         <div className="item-form">
-          <label htmlFor="cardAttr2">
+          <label htmlFor="cardAttr2" className="form-label">
             Segundo atributo:
             <input
               name="cardAttr2"
+              className="form-control"
               type="number"
               data-testid="attr2-input"
               value={ cardAttr2 }
@@ -86,10 +73,11 @@ class Form extends React.Component {
           </label>
         </div>
         <div className="item-form">
-          <label htmlFor="cardAttr3">
+          <label htmlFor="cardAttr3" className="form-label">
             Terceiro atributo:
             <input
               name="cardAttr3"
+              className="form-control"
               type="number"
               data-testid="attr3-input"
               value={ cardAttr3 }
@@ -97,11 +85,12 @@ class Form extends React.Component {
             />
           </label>
         </div>
-        <div className="item-form">
-          <label htmlFor="cardImage">
+        <div className="item-form input-group">
+          <label htmlFor="cardImage" className="form-label input-group-text">
             Insira uma imagem:
             <input
               name="cardImage"
+              className="form-control"
               type="text"
               data-testid="image-input"
               value={ cardImage }
@@ -110,23 +99,32 @@ class Form extends React.Component {
           </label>
         </div>
         <div className="item-form">
-          <select
-            name="cardRare"
-            data-testid="rare-input"
-            value={ cardRare }
-            onChange={ onInputChange }
-          >
-            <option value="normal">Normal</option>
-            <option value="raro">Raro</option>
-            <option value="muito raro">Muito Raro</option>
-          </select>
+          <label htmlFor="cardRare" className="form-label">
+            Raridade
+            <select
+              name="cardRare"
+              className="form-select"
+              data-testid="rare-input"
+              value={ cardRare }
+              onChange={ onInputChange }
+            >
+              <option value="normal">Normal</option>
+              <option value="raro">Raro</option>
+              <option value="muito raro">Muito Raro</option>
+            </select>
+          </label>
         </div>
         <div className="item-form">
-          {divTrunfo}
+          <CheckboxTrunfo
+            hasTrunfo={ hasTrunfo }
+            cardTrunfo={ cardTrunfo }
+            onInputChange={ onInputChange }
+          />
         </div>
         <div className="item-form">
           <button
-            type="submit"
+            type="button"
+            className="btn btn-dark"
             data-testid="save-button"
             value="Salvar"
             disabled={ isSaveButtonDisabled }

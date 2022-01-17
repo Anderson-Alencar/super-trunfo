@@ -1,3 +1,36 @@
+.attr {
+  background-color: rgb(226, 224, 224);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin: 3px;
+}
+
+body {
+  background-attachment: fixed;
+  background-image: url('https://image.winudf.com/v2/image1/Y29tLndpemFyZHMubXRnYV9zY3JlZW5fcHQtQlJfNl8xNjE1OTIyNzY5XzAyMQ/screen-6.jpg?fakeurl=1&type=.jpg');
+  background-size: 100%;
+}
+
+.card {
+  height: 32rem;
+  margin-top: 40px;
+  width: 18rem;
+}
+
+.container {
+  background-color: white;
+}
+
+.footer {
+  background-color: black;
+  color: white;
+  margin-top: 200px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
 .form {
   align-items: flex-start;
   display: flex;
@@ -6,4 +39,19 @@
 
 .item-form {
   margin-top: 15px;
+}
+
+.item-form .form-control {
+  width: 450px;
+}
+
+.item-form .form-label {
+  width: 450px;
+}
+
+
+.rarity {
+  border:solid black;
+  text-align: center;
+  font-style: italic;
 }

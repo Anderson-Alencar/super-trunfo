@@ -1,25 +1,76 @@
+.alert-attr {
+  font-style: italic;
+  width: 450px;
+  word-break: break-word;
+}
 .attr {
   background-color: rgb(226, 224, 224);
-  border-radius: 10px;
+  border-radius: 100px;
+  height: 1.8rem;
   display: flex;
-  justify-content: space-between;
-  margin: 3px;
+  align-items: center;
+  justify-content:space-around;
+  margin: 0.3rem;
 }
 
-body {
-  background-attachment: fixed;
-  background-image: url('https://image.winudf.com/v2/image1/Y29tLndpemFyZHMubXRnYV9zY3JlZW5fcHQtQlJfNl8xNjE1OTIyNzY5XzAyMQ/screen-6.jpg?fakeurl=1&type=.jpg');
-  background-size: 100%;
+.attr p {
+  margin-top: 1rem;
 }
 
-.card {
-  height: 32rem;
-  margin-top: 40px;
-  width: 18rem;
+.container-card {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 5px;
+  height: 26.5rem;
+  width: 16.5rem;
+}
+
+.container .row {
+  margin-top: 2rem;
+}
+
+.card-description {
+  align-items: center;
+  background-color: yellow;
+  display: flex;
+  font-size: small;
+  height: 3.3rem;
+  justify-content: center;
+  word-break: break-word;
+}
+
+.card-description p {
+  margin-top: 1rem;
+}
+
+.card-name {
+  background-color: rgb(4, 77, 58);
+  color: white;
+  font-size: x-large;
+  margin-bottom: 0;
+  text-align: end;
+}
+
+.my-card {  
+  background-color: #148831;
+  border: #5773f0 solid;
+  border-radius: 5px;
+  height: 26rem;
+  width: 16rem;
+}
+
+.card-img-top {
+  height: 12rem;
 }
 
 .container {
-  background-color: white;
+  background-color:#eeeeee;
+}
+
+.container-img {
+  position: relative;
 }
 
 .footer {
@@ -42,16 +93,36 @@ body {
 }
 
 .item-form .form-control {
+  background-color: #ffffff;
+  border: 0;
+  border-bottom: solid 1px;
   width: 450px;
 }
 
 .item-form .form-label {
+  font-weight: bolder;
   width: 450px;
 }
 
+.preview {
+  background-color: rgb(4, 77, 58);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .rarity {
-  border:solid black;
+  border:solid 0.1rem white;
+  color: white;
+  font-style: italic;
   text-align: center;
+}
+
+.super-trunfo {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  background-color: black;
+  color: yellow;
   font-style: italic;
 }

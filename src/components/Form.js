@@ -28,6 +28,7 @@ class Form extends React.Component {
               name="cardName"
               className="form-control"
               type="text"
+              maxLength={ 20 }
               data-testid="name-input"
               onChange={ onInputChange }
               value={ cardName }
@@ -40,6 +41,7 @@ class Form extends React.Component {
             <textarea
               name="cardDescription"
               className="form-control"
+              maxLength={ 60 }
               data-testid="description-input"
               value={ cardDescription }
               onChange={ onInputChange }
@@ -85,6 +87,12 @@ class Form extends React.Component {
             />
           </label>
         </div>
+        <div className="alert-attr">
+          <p>
+            Os atributos devem conter um valor entre 0 - 90
+            e a soma dos três valores não deve ultrapassar 210
+          </p>
+        </div>
         <div className="item-form input-group">
           <label htmlFor="cardImage" className="form-label input-group-text">
             Insira uma imagem:
@@ -92,6 +100,7 @@ class Form extends React.Component {
               name="cardImage"
               className="form-control"
               type="text"
+              placeholder="Cole a URL de uma imagem válida"
               data-testid="image-input"
               value={ cardImage }
               onChange={ onInputChange }
@@ -103,7 +112,7 @@ class Form extends React.Component {
             Raridade
             <select
               name="cardRare"
-              className="form-select"
+              className="form-select form-control"
               data-testid="rare-input"
               value={ cardRare }
               onChange={ onInputChange }
@@ -124,7 +133,7 @@ class Form extends React.Component {
         <div className="item-form">
           <button
             type="button"
-            className="btn btn-dark"
+            className="btn btn-primary"
             data-testid="save-button"
             value="Salvar"
             disabled={ isSaveButtonDisabled }

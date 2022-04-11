@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function CheckboxTrunfo({ hasTrunfo, cardTrunfo, onInputChange }) {
   return (
-    <div>
+    <div className="form-label">
       {
         hasTrunfo
           ? (

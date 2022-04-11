@@ -100,13 +100,9 @@ class App extends React.Component {
 
     const newState = cardsSaves.filter((card) => card !== cardToDel);
 
-    // console.log(cardToDel);
-
     this.setState({
       cardsSaves: newState,
     });
-
-    // if (cardTrunfo) this.setState({ hasTrunfo: false });
   }
 
   render() {
@@ -123,7 +119,7 @@ class App extends React.Component {
               onSaveButtonClick={ this.onSaveButtonClick }
             />
           </div>
-          <div className="col-sm-6">
+          <div className="col-sm-6 preview">
             <Card { ...this.state } noDeleteBtn={ noDeleteBtn } />
           </div>
         </div>

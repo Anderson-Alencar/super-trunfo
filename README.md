@@ -22,4 +22,6 @@ Este é um projeto desenvolvido em React com manipulação de estados em classe 
   * Criar formulários utilizando sintaxe JSX com as tags: `input`, `textarea`, `select`, `form`, `checkbox`
 
   * Transmitir informações de componentes filhos para componentes pais via callbacks
-  
+
+# Preview
+https://anderson-alencar.github.io/super-trunfo/
